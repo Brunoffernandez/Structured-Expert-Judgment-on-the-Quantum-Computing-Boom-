@@ -1,0 +1,25 @@
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# System
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+
+# LaTeX build artifacts (in case the source of the report is added later)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
