@@ -2,212 +2,213 @@
 
 *Forecasting the next major technology wave*
 
-**Autor:** Bruno Fernandez Carballo
+**Author:** Bruno Fernandez Carballo
 **Instructor:** G. F. Nane
-**Curso:** Decision Theory and Expert Judgment — TU Delft
-**Fecha:** Junio 2026
+**Course:** Decision Theory and Expert Judgment — TU Delft
+**Date:** June 2026
 
 ---
 
-## Sobre el proyecto
+## About the project
 
-Este repositorio contiene un estudio de **Structured Expert Judgment (SEJ)**
-sobre el futuro de la computación cuántica, realizado con el
+This repository contains a **Structured Expert Judgment (SEJ)** study on
+the future of quantum computing, carried out with the
 [**Classical Model**](https://en.wikipedia.org/wiki/Expert_elicitation#Cooke's_Classical_Model)
-de Roger Cooke.
+of Roger Cooke.
 
-La computación cuántica se describe con frecuencia como la próxima gran
-revolución tecnológica, pero el **momento** y la **magnitud** de este
-posible "quantum boom" siguen siendo altamente inciertos. Al no existir
-apenas series históricas para construir un modelo puramente basado en
-datos, el problema encaja de lleno en el escenario para el que se diseñó
-el SEJ.
+Quantum computing is frequently described as the next major technology
+revolution, but the **timing** and **magnitude** of this potential
+"quantum boom" remain highly uncertain. Because there is almost no
+historical data to build a purely data-driven model, the problem is
+precisely the setting for which SEJ was designed.
 
-Un panel de **ocho expertos** dio los cuantiles 5 %, 50 % y 95 % para
-**14 preguntas de calibración** (con respuesta conocida) y **5 preguntas
-de interés** sobre el futuro del sector. Para comprobar si el
-*background* de los evaluadores cambia las conclusiones, el panel se
-analiza en tres configuraciones:
+A panel of **eight experts** provided the 5 %, 50 % and 95 % quantiles
+for **14 calibration questions** (with known answers) and **5 questions
+of interest** about the future of the field. To test whether the
+background of the assessors changes the conclusions, the panel is
+analysed in three configurations:
 
-| Configuración          | Composición                                  |
-| ---------------------- | -------------------------------------------- |
-| **Full panel**         | los 8 expertos                               |
-| **Quantum panel**      | 4 expertos con formación en física cuántica  |
-| **Investment panel**   | 4 expertos con formación en finanzas / PE    |
+| Configuration        | Composition                                  |
+| -------------------- | -------------------------------------------- |
+| **Full panel**       | all 8 experts                                |
+| **Quantum panel**    | 4 experts with a quantum-physics background  |
+| **Investment panel** | 4 experts with an investment / PE background |
 
-### Principales resultados
+### Headline results
 
-- En las tres configuraciones el **decision maker (DM) con pesos por
-  desempeño** supera al DM con pesos iguales en el score combinado
-  calibración × información.
-- El DM más fuerte se construye a partir del panel completo
-  (calibración **0.399**, información **1.37**) y concentra el peso en
-  los dos únicos evaluadores bien calibrados — uno de cada grupo.
-- El *forecast* agregado proyecta que el mercado global de computación
-  cuántica superará los **50 000 M USD hacia 2039** (intervalo 90 %
-  2032 – 2050) y que la primera ruptura criptográficamente relevante
-  de **RSA-2048 llegará alrededor de 2049** (intervalo 90 % 2035 – 2067).
-- Los dos *background groups* discrepan sobre el llamado "Q-day", lo
-  que puede indicar cierto exceso de confianza en los expertos de
-  dominio.
+- In all three configurations the **performance-weighted decision maker
+  (PWDM)** outperforms the equal-weight one on the combined
+  calibration × information score.
+- The strongest DM overall is the one built from the full panel
+  (calibration **0.399**, information **1.37**), which concentrates its
+  weight on the only two well-calibrated assessors — one from each
+  background group.
+- The aggregate forecast projects that the global quantum-computing
+  market will exceed **USD 50 billion around 2039** (90 % interval
+  2032 – 2050), and that the first cryptographically relevant break of
+  **RSA-2048 will happen around 2049** (90 % interval 2035 – 2067).
+- The two background groups disagree on the timing of the so-called
+  "Q-day", which may indicate a degree of overconfidence among domain
+  experts.
 
-Todos los detalles, tablas, figuras y discusión están en el informe
-completo:
+All the details, tables, figures and discussion are in the full report:
 [`report/Report_DT_EJ.pdf`](report/Report_DT_EJ.pdf).
 
 ---
 
-## Estructura del repositorio
+## Repository layout
 
 ```
 .
 ├── report/
-│   └── Report_DT_EJ.pdf          Informe completo (PDF, 19 páginas)
+│   └── Report_DT_EJ.pdf          Full report (PDF, 19 pages)
 │
-├── R code for CM/                Implementación en R del Classical Model
+├── R code for CM/                R implementation of the Classical Model
 │   ├── R code/
-│   │   ├── Classical Model main.R    Script principal a ejecutar
-│   │   ├── calibrationScore.R        Score de calibración C(e)
-│   │   ├── informationScore.R        Score de información I(e)
-│   │   ├── constructDM.R             Construcción del Decision Maker
-│   │   ├── globalWeights_opt.R       Pesos globales, alpha optimizado
-│   │   ├── globalWeights_alpha.R     Pesos globales con alpha fijo
+│   │   ├── Classical Model main.R    Main script to run
+│   │   ├── calibrationScore.R        Calibration score C(e)
+│   │   ├── informationScore.R        Information score I(e)
+│   │   ├── constructDM.R             Decision-maker construction
+│   │   ├── globalWeights_opt.R       Global weights, optimised alpha
+│   │   ├── globalWeights_alpha.R     Global weights with fixed alpha
 │   │   ├── itemWeights.R             Item weights (alpha = 0)
-│   │   ├── itemWeights_opt.R         Item weights, alpha optimizado
-│   │   └── itemWeights_alpha.R       Item weights con alpha fijo
+│   │   ├── itemWeights_opt.R         Item weights, optimised alpha
+│   │   └── itemWeights_alpha.R       Item weights with fixed alpha
 │   │
-│   └── Expert data/              Datos de ejemplo (formato de entrada)
-│       ├── Exp1.csv … Exp5.csv       Cuantiles por experto
-│       └── realizations.csv          Valores verdaderos de las seeds
+│   └── Expert data/              Sample data (input format)
+│       ├── Exp1.csv … Exp5.csv       Quantiles per expert
+│       └── realizations.csv          True values of the seeds
 │
 ├── .gitignore
 └── README.md
 ```
 
-> **Nota sobre los datos.** Los ficheros `Exp*.csv` y `realizations.csv`
-> incluidos son los datos **de ejemplo** distribuidos junto con la
-> implementación del curso (basados en el índice AEX). Sirven para
-> mostrar el formato de entrada del código y para reproducir un caso
-> ejecutable, pero **no son las respuestas del panel de expertos**
-> usadas en el informe; esas respuestas se mantienen confidenciales
-> tal y como establece el protocolo de elicitación (Sección 3.1 del
-> informe).
+> **Note on the data.** The `Exp*.csv` and `realizations.csv` files
+> included here are the **sample data** distributed alongside the course
+> implementation (based on the AEX index). They exist to illustrate the
+> input format of the code and to provide a runnable example, but they
+> are **not the responses of the expert panel** used in the report;
+> those responses are kept confidential as established by the
+> elicitation protocol (Section 3.1 of the report).
 
 ---
 
-## El Classical Model en dos líneas
+## The Classical Model in two lines
 
-Cada experto *e* recibe un peso proporcional a
+Each expert *e* receives a weight proportional to
 
 $$w_e \;\propto\; C(e)\cdot I(e)\cdot \mathbf{1}_{\{C(e)\ge\alpha\}}$$
 
-donde
+where
 
-- **C(e)** es el *calibration score*: el p-valor del test χ²ₙ₋₁ que
-  compara la distribución empírica de las realizaciones sobre los
-  bins inter-cuantílicos con el vector teórico (0.05, 0.45, 0.45, 0.05).
-- **I(e)** es el *information score*: la divergencia de Kullback-Leibler
-  de la densidad del experto respecto a una medida uniforme (o
-  log-uniforme) sobre el intrinsic range con overshoot k = 0.1.
-- **α** es un umbral opcional que anula el peso de los expertos con
-  calibración por debajo del corte.
+- **C(e)** is the *calibration score*: the p-value of the χ²ₙ₋₁ test
+  that compares the empirical distribution of the realisations over the
+  inter-quantile bins against the theoretical vector
+  (0.05, 0.45, 0.45, 0.05).
+- **I(e)** is the *information score*: the Kullback-Leibler divergence
+  of the expert's density with respect to a uniform (or log-uniform)
+  background measure on the intrinsic range with overshoot k = 0.1.
+- **α** is an optional threshold that zeroes the weight of any expert
+  whose calibration falls below the cut-off.
 
-El *Performance Weights Decision Maker* (PWDM) agrega las densidades
-individuales con estos pesos y produce los cuantiles 5 / 50 / 95 % del
-grupo. Para más detalles ver Secciones 2.1 – 2.4 del informe.
+The *Performance Weights Decision Maker* (PWDM) aggregates the
+individual densities with these weights and produces the group's
+5 / 50 / 95 % quantiles. See Sections 2.1 – 2.4 of the report for the
+full derivation.
 
 ---
 
-## Cómo reproducir los resultados
+## How to reproduce the results
 
-### Requisitos
+### Requirements
 
 - **R** ≥ 4.0
-- No requiere paquetes externos. Todo se implementa con `base` R.
-  (Opcionalmente, `rstudioapi` para la detección automática del
-  directorio de trabajo dentro de RStudio.)
+- No external packages required. Everything is implemented in `base` R.
+  (Optionally, `rstudioapi` for auto-detection of the working directory
+  inside RStudio.)
 
-### Pasos
+### Steps
 
-1. Clona el repositorio:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/brunoffernandez/structured-expert-judgment-on-the-quantum-computing-boom-.git
    cd structured-expert-judgment-on-the-quantum-computing-boom-/"R code for CM"
    ```
 
-2. Abre `R code/Classical Model main.R` en RStudio (o R). El script
-   intentará ubicar automáticamente la carpeta `R code for CM` como
-   directorio de trabajo. Si lo ejecutas desde la línea de comandos,
-   asegúrate de que `getwd()` devuelve esa carpeta.
+2. Open `R code/Classical Model main.R` in RStudio (or R). The script
+   tries to locate the `R code for CM` folder as the working directory
+   automatically. If you launch it from the command line, make sure
+   `getwd()` returns that folder.
 
-3. Ejecuta el script entero. La consola imprimirá:
+3. Run the whole script. The console will print:
 
-   - Scores de calibración e información por experto.
-   - Pesos y soluciones (5 / 50 / 95 %) de los siguientes decision
+   - Calibration and information scores per expert.
+   - Weights and solutions (5 / 50 / 95 %) for the following decision
      makers:
      - **EWDM** — Equal Weights DM
      - **PWDM** — Performance Weights DM (α = 0)
-     - **PWDM opt** — global, α optimizado
+     - **PWDM opt** — global, optimised α
      - **PWDM α = 0.05**
-     - **IWDM opt** — item weights, α optimizado
-   - Score combinado de calibración e información para PWDM y EWDM
-     (comparación directa que se reporta en la Sección 4.3 del informe).
+     - **IWDM opt** — item weights, optimised α
+   - Combined calibration-information score for PWDM and EWDM (the
+     direct comparison reported in Section 4.3 of the report).
 
-Para reproducir el análisis de los sub-paneles del informe (quantum
-vs. investment), basta con ejecutar el script tres veces cambiando la
-selección de ficheros `Exp*.csv` presentes en `Expert data/`
-(o ajustando `csvFiles` en el script principal).
-
----
-
-## Referencia rápida a las preguntas del estudio
-
-**Preguntas de calibración (14).** Cubren los tres bloques que
-recrean, a propósito, las tres fases de una ola tecnológica:
-
-- *Mercado / boom histórico.* NASDAQ en el pico del dot-com (Q1),
-  caída del NASDAQ 2000-2002 (Q2).
-- *Adopción.* Usuarios de internet en 2000 (Q3), velocidad de adopción
-  de ChatGPT (Q4), publicaciones AI en 2023 (Q5), organizaciones
-  usando AI en 2024 (Q14).
-- *Inversión e investigación.* Patentes AI 2023 (Q6), inversión privada
-  en GenAI 2024 (Q7), ordenadores cuánticos operativos en 2025 (Q8),
-  submissions a `quant-ph` en 2023 (Q9), patentes cuánticas 2024 (Q10),
-  VC en quantum 2024 (Q11), inversión privada quantum en 9M 2025 (Q12),
-  proyección McKinsey 2030 (Q13).
-
-**Preguntas de interés (5).**
-
-1. Año en que el mercado global de computación cuántica supera los
-   50 000 M USD anuales.
-2. Papers anuales en `quant-ph` en 2035.
-3. Número de ordenadores cuánticos operativos en el mundo en 2035.
-4. Año en que un ordenador cuántico rompa por primera vez RSA-2048
-   en < 24 h (*Q-day*).
-5. Porcentaje de Fortune 500 con uso operativo de quantum en 2035.
-
-Las justificaciones, seeds y comentarios cualitativos por experto están
-en la Sección 3 del informe.
+To reproduce the sub-panel analysis from the report
+(quantum vs. investment), it is enough to run the script three times
+changing the selection of `Exp*.csv` files present in `Expert data/`
+(or adjusting `csvFiles` in the main script).
 
 ---
 
-## Créditos
+## Quick reference to the study questions
 
-- **Classical Model (teoría):** Roger M. Cooke (TU Delft).
-- **Implementación en R:** T. Nane y T. Dong, distribuida para el curso
-  *Decision Theory and Expert Judgment* de TU Delft. Este repositorio
-  la usa **tal cual**; el único cambio propio es la lectura de los
-  ficheros exportados por el cuestionario online (normalización de
-  comas decimales y verificación de monotonicidad estricta de los
-  cuantiles).
-- **Estudio, elicitación, análisis y redacción del informe:**
-  Bruno Fernandez Carballo (autor del proyecto).
+**Calibration questions (14).** They cover, on purpose, the three
+phases of a technology wave:
+
+- *Market / historical boom.* NASDAQ at the dot-com peak (Q1), NASDAQ
+  decline 2000-2002 (Q2).
+- *Adoption.* Internet users in 2000 (Q3), ChatGPT adoption speed (Q4),
+  AI-related publications in 2023 (Q5), organisations using AI in 2024
+  (Q14).
+- *Investment and research.* AI patents 2023 (Q6), private investment
+  in GenAI 2024 (Q7), operational quantum computers in 2025 (Q8),
+  `quant-ph` submissions in 2023 (Q9), quantum patents 2024 (Q10), VC
+  in quantum 2024 (Q11), private quantum investment in 9M 2025 (Q12),
+  McKinsey's 2030 projection (Q13).
+
+**Questions of interest (5).**
+
+1. Year the global quantum-computing market first exceeds USD 50 billion
+   in annual revenue.
+2. Papers per year submitted to `quant-ph` by 2035.
+3. Number of operational quantum computers worldwide in 2035.
+4. Year a quantum computer first breaks RSA-2048 in < 24 h (*Q-day*).
+5. Percentage of Fortune 500 companies reporting operational use of
+   quantum by 2035.
+
+The rationale, seeds and per-expert qualitative comments are in
+Section 3 of the report.
 
 ---
 
-## Licencia
+## Credits
 
-Contenido académico. El código R conserva la autoría original de sus
-autores; el informe y la documentación de este repositorio se comparten
-con fines educativos y de reproducibilidad.
+- **Classical Model (theory):** Roger M. Cooke (TU Delft).
+- **R implementation:** T. Nane and T. Dong, distributed for the
+  *Decision Theory and Expert Judgment* course at TU Delft. This
+  repository uses it **as-is**; the only self-authored change is the
+  data-reading step, where the script was adapted to read the survey
+  exports of the online questionnaire (normalising decimal commas to
+  points and checking that the three quantiles of every assessment are
+  strictly increasing).
+- **Study, elicitation, analysis and report:** Bruno Fernandez Carballo
+  (author of the project).
+
+---
+
+## License
+
+Academic content. The R code retains the original authorship of its
+authors; the report and the documentation of this repository are shared
+for educational purposes and reproducibility.
